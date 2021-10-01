@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,28 @@ namespace UserMaintenance
                 
             };
             users.Add(u);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog mentes = new SaveFileDialog();
+            mentes.InitialDirectory = Application.StartupPath;
+            mentes.Filter = "Comma Seperated Values (*.csv) | *.csv";
+            mentes.DefaultExt = "csv";
+            mentes.AddExtension = true;
+
+            if (mentes.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw = new StreamWriter(mentes.FileName, false, Encoding.UTF8))
+            {
+                foreach (var u in users)
+                {
+                    sw.WriteLine(u.FullName);
+                    sw.Write(";");
+                    sw.WriteLine(u.ID);
+                    sw.Write(";");
+                }
+            }
         }
     }
 }
