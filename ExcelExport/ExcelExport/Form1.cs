@@ -25,6 +25,7 @@ namespace ExcelExport
             InitializeComponent();
             LoadData();
             CreateExcel();
+            FormatTable();
 
         }
         private void LoadData()
