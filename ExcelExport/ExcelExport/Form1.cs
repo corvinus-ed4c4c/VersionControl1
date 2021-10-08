@@ -101,7 +101,7 @@ namespace ExcelExport
                 values[counter, 5] = f.NumberOfRooms;
                     values[counter, 6] = f.FloorArea;
                     values[counter, 7] = f.Price;
-                    values[counter, 8] = "H2/G2*1000000";
+                    values[counter, 8] = "=H2/G2*1000000";
                     counter++;
                 }
 
