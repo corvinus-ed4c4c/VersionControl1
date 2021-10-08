@@ -1,5 +1,5 @@
 ﻿
-namespace ExcelGyak
+namespace ExcelExport
 {
     partial class Form1
     {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9F6AAED-8497-4DA3-A39A-9020183CE084}</ProjectGuid>
+    <ProjectGuid>{95081519-D4C8-488A-BE25-F1EF210D0BF5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ExcelGyak</RootNamespace>
-    <AssemblyName>ExcelGyak</AssemblyName>
+    <RootNamespace>ExcelExport</RootNamespace>
+    <AssemblyName>ExcelExport</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExcelGyak
+namespace ExcelExport
 {
     using System;
     using System.Data.Entity;
@@ -25,6 +25,6 @@ namespace ExcelGyak
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Flat> Flat { get; set; }
+        public virtual DbSet<Flat> Flats { get; set; }
     }
 }

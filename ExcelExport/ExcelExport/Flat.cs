@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExcelGyak
+namespace ExcelExport
 {
     using System;
     using System.Collections.Generic;
