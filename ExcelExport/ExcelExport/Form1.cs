@@ -104,7 +104,7 @@ namespace ExcelExport
                     values[counter, 8] = "=H2/G2*1000000";
                     counter++;
                 }
-
+            
             var range =  xlSheet.get_Range(
             GetCell(2, 1),
             GetCell(1 + values.GetLength(0), values.GetLength(1)));
