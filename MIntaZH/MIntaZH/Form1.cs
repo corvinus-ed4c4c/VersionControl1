@@ -19,7 +19,7 @@ namespace MIntaZH
         {
             InitializeComponent();
             Betölt("Summer_olympic_Medals.csv");
-           // Feltölt();
+           Feltölt();
         }
 
         private void Betölt(string fileName)
@@ -48,7 +48,13 @@ namespace MIntaZH
                 }
             }
             }
+        private void Feltölt()
+        {
+            var years = (from r in results
+                         orderby r.Year
+                         select r.Year).Distinct();
+            comboBox1.DataSource = years.ToList();
+        }
 
-        
     }
 }
