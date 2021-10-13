@@ -26,6 +26,7 @@ namespace MIntaZH
             Betölt("Summer_olympic_Medals.csv");
             Feltölt();
             Helyezes();
+            button1.Text = Resource1.Add;
             
 
         }
