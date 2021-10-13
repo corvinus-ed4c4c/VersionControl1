@@ -20,6 +20,8 @@ namespace MIntaZH
             InitializeComponent();
             Betölt("Summer_olympic_Medals.csv");
            Feltölt();
+            Helyezes();
+            
         }
 
         private void Betölt(string fileName)
@@ -54,6 +56,37 @@ namespace MIntaZH
                          orderby r.Year
                          select r.Year).Distinct();
             comboBox1.DataSource = years.ToList();
+        }
+
+        private int Helyezeskalk(OlympicResult or)
+        {
+            var CurrentPosition = 0;
+            int counter = 0;
+
+            var FilteredList = (from r in results
+                                where r.Year == or.Year && r.Country != or.Country
+                                select r
+                                );
+
+            foreach(var r in FilteredList)
+            {
+                if (r.Medals[0] > or.Medals[0])
+                    counter++;
+                if ((r.Medals[0] == or.Medals[0]) && (r.Medals[1] == or.Medals[1]))
+                    counter++;
+                if((r.Medals[0] == or.Medals[0]) && (r.Medals[1] == or.Medals[1]) && (r.Medals[2] > or.Medals[2]))
+                    counter++;
+            }
+
+
+            return CurrentPosition +1;
+        }
+        private void Helyezes()
+        {
+            foreach(var r in results)
+            {
+                r.Position = Helyezeskalk(r);
+            }
         }
 
     }
