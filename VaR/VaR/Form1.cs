@@ -13,6 +13,7 @@ namespace VaR
 {
     public partial class Form1 : Form
     {
+        string valami = null;
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
@@ -42,7 +43,7 @@ namespace VaR
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
-            SaveToFile();
+            
         }
         private void CreatePortfolio()
         {
@@ -86,6 +87,11 @@ namespace VaR
                 }
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
         }
     }
 }
