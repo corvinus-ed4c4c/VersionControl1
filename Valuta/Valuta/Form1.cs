@@ -18,7 +18,7 @@ namespace Valuta
     {
         BindingList<RateData> arfolyam = new BindingList<RateData>();
         string result = null;
-        
+        BindingList<String> Currencies = new BindingList<String>();
         public Form1()
         {
             InitializeComponent();
