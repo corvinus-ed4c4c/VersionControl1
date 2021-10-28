@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Valuta.Entities;
 using Valuta.ServiceReference1;
 
 namespace Valuta
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> arfolyam = new BindingList<RateData>();
         public Form1()
         {
             InitializeComponent();
             Webservice();
-            
+            dataGridView1.DataSource = arfolyam;
         }
 
         public void Webservice()
