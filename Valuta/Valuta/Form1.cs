@@ -18,13 +18,12 @@ namespace Valuta
     {
         BindingList<RateData> arfolyam = new BindingList<RateData>();
         string result = null;
+        
         public Form1()
         {
             InitializeComponent();
-            Webservice();
-            dataGridView1.DataSource = arfolyam;
-            XML();
-            Diagram();
+            RefreshData();
+            
         }
 
         public void Webservice()
@@ -34,8 +33,8 @@ namespace Valuta
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                startDate = dateTimePicker2.Value.ToString(),
+                endDate = dateTimePicker1.Value.ToString()
             };
 
             // Ebben az esetben a "var" a GetExchangeRates visszatérési értékéből kapja a típusát.
@@ -91,6 +90,32 @@ namespace Valuta
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        public void RefreshData()
+        {
+
+            arfolyam.Clear();
+            
+            Webservice();
+            dataGridView1.DataSource = arfolyam;
+            XML();
+            Diagram();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
