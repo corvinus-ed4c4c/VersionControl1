@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using Valuta.Entities;
 using Valuta.ServiceReference1;
@@ -23,6 +24,7 @@ namespace Valuta
             Webservice();
             dataGridView1.DataSource = arfolyam;
             XML();
+            Diagram();
         }
 
         public void Webservice()
@@ -72,6 +74,23 @@ namespace Valuta
                     rate.Value = value / unit;
             }
         }
+        public void Diagram()
+        {
+            chartRateData.DataSource = arfolyam;
 
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+
+            var legend = chartRateData.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chartRateData.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
+        }
     }
 }
