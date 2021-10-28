@@ -16,6 +16,12 @@ namespace Valuta
         public Form1()
         {
             InitializeComponent();
+            Webservice();
+            
+        }
+
+        public void Webservice()
+        {
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
