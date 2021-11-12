@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gyartosor.Entities
 {
-    class BallFactory
+   public class BallFactory
     {
-
+        public Ball CreateNew()
+        {
+            return new Ball();
+        }
     }
 }
