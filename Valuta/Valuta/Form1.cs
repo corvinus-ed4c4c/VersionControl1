@@ -22,9 +22,25 @@ namespace Valuta
         public Form1()
         {
             InitializeComponent();
+          //  GetCurrencies();
             RefreshData();
             
         }
+       /* private void GetCurrencies()
+        {
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(result);
+            foreach (XmlElement item in xml.DocumentElement.ChildNodes[0])
+            {
+                string newItem = item.InnerText;
+                Currencies.Add(newItem);
+            }
+            comboBox1.DataSource = Currencies;
+        }*/
 
         public void Webservice()
         {
@@ -44,8 +60,9 @@ namespace Valuta
             // Ebben az esetben a "var" a GetExchangeRatesResult property alapján kapja a típusát.
             // Ezért a result változó valójában string típusú.
              result = response.GetExchangeRatesResult;
+              
         }
-
+        
         public void XML()
         {
             var xml = new XmlDocument();
@@ -71,7 +88,10 @@ namespace Valuta
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit != 0)
                     rate.Value = value / unit;
+
+
             }
+
         }
         public void Diagram()
         {

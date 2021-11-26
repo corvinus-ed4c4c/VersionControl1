@@ -50,7 +50,7 @@ namespace VaR
             Portfolio.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
             Portfolio.Add(new PortfolioItem() { Index = "ZWACK", Volume = 10 });
             Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
-
+           
             dataGridView2.DataSource = Portfolio;
         }
         private decimal GetPortfolioValue(DateTime date)
@@ -79,8 +79,9 @@ namespace VaR
                 
                 using(StreamWriter sw = new StreamWriter(sf.FileName))
                 {
+                    
                     sw.WriteLine("Időszak\tNyereség");
-                    for (int i = 0; i < Nyereségek.Count; i++)
+                    for (int i = 0; i < Nyereségek.Count(); i++)
                     {
                         sw.WriteLine((i + 1).ToString() + "\t" + Nyereségek[i]);
                     }
