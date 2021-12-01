@@ -17,12 +17,15 @@ namespace Mikroszim
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+
+        Random rng = new Random(1234);
         public Form1()
         {
             InitializeComponent();
             Population = GetPopulation(@"C:\Temp1\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp1\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp1\halál.csv");
+            
         }
 
         public List<Person> GetPopulation(string csvpath)
